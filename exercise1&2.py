@@ -12,28 +12,9 @@ class shopping_cart:
         self.clear_cart = clear
         self.quit_cart = quit
         self.shop_cart = shop
-        
+        self.my_cart = []
 
-    def main():     
-        my_cart = shopping_cart()
-        correct_answer = ('Add', 'Remove', 'Show', 'Clear', 'Quit')
-
-        while True:
-            answer = input('Welcome to Braxton Shoppe What would you like to do? Add/Remove/Show/Clear/Quit ').title()
-    
-            while answer not in correct_answer:
-                answer = 'That is not an option. What would you like to do? Add/Remove/Show/Clear/Quit '.title()
-            if answer == 'quit':
-                clear_output()
-                break
-            elif answer == 'add':
-                my_cart.add_to_cart()
-            elif answer == 'remove':
-                my_cart.remove_from_cart()
-            elif answer == 'clear':
-                my_cart.clear_cart(my_cart)
-
-    def add_to_cart(self):
+    def add_to_cart(self, item):
         item = input('What would you like to add to your cart? ').title()
         if item in self.shop_cart:
             amount = int(input(f'How many {item} would you like to add to your cart? '))
@@ -61,8 +42,27 @@ class shopping_cart:
         pass
 
 
+def main():     
+        my_cart = shopping_cart()
+        correct_answer = ('Add', 'Remove', 'Show', 'Clear', 'Quit')
 
-    main()
+        while True:
+            answer = input('Welcome to Braxton Shoppe What would you like to do? Add/Remove/Show/Clear/Quit ').title()
+    
+            while answer not in correct_answer:
+                answer = 'That is not an option. What would you like to do? Add/Remove/Show/Clear/Quit '.title()
+            if answer == 'quit':
+                clear_output()
+                break
+            elif answer == 'add':
+                my_cart.add_to_cart()
+            elif answer == 'remove':
+                my_cart.remove_from_cart()
+            elif answer == 'clear':
+                my_cart.clear_cart(my_cart)
+
+
+main()
 
 # Exercise 2
 
